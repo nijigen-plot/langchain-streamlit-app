@@ -1,0 +1,36 @@
+[project]
+name = "streamlit-web-app"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "nijigen-plot", email = "quark_hardcore@yahoo.co.jp" }
+]
+dependencies = [
+    "python-dotenv>=1.0.0",
+    "langchain>=0.1.0",
+    "streamlit>=1.30.0",
+    "pydantic>=2.5.3",
+    "openai>=1.7.2",
+    "langchain-openai>=0.0.2.post1",
+    "duckduckgo-search>=4.2",
+    "wikipedia>=1.4.0",
+]
+readme = "README.md"
+requires-python = ">= 3.11"
+
+[project.scripts]
+hello = "streamlit_web_app:hello"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/streamlit_web_app"]
