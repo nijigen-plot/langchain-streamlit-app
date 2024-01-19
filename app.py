@@ -23,10 +23,32 @@ else:
 option = st.selectbox(
     '気になるプラグインは？',
     (
-        'Compressor',
-        'シンセサイザー',
+        'コンプレッサー',
         'ディストーション',
-        'Colour Bassを作る時のおススメプラグイン'
+        'パン',
+        'フィルター',
+        'コーラス',
+        'モジュレーター',
+        'ディレイ',
+        'イコライザー',
+        'フランジャー',
+        'ピッチシフター',
+        'ゲート',
+        'ステレオイメージャー',
+        'リミッター',
+        'マキシマイザー',
+        'アナライザー',
+        'トランジェント',
+        'ビットクラッシャー',
+        'ステップシーケンサー',
+        '話題のFXプラグイン',
+        'ボコーダー',
+        'シンセサイザー',
+        'ギター音源',
+        'ピアノ音源',
+        'オーケストラ音源',
+        '民族楽器',
+        '話題の音源プラグイン'
     ),
     disabled=st.session_state.disabled,
     key='question'
@@ -68,9 +90,9 @@ def create_agent_chain():
 
 # プロンプト設定
 chat_prompt = ChatPromptTemplate.from_messages([
-    SystemMessagePromptTemplate.from_template("あなたはDTM(Computer Music)における{option}のプロフェッショナルです。"),
-    HumanMessagePromptTemplate.from_template("DTM(Computer Music)用のおすすめプラグインについて教えてください。\n\n プラグイン種類: {option}")
-])
+    SystemMessagePromptTemplate.from_template("あなたはDTM(Computer Music)における{option}のプロフェッショナルアシスタントです。回答に幅を持たせるため、王道だけでなくマニアックなものも含めて5つほど載せてほしいです。"),
+    HumanMessagePromptTemplate.from_template("DTM(Computer Music)用のおすすめプラグインについて教えてください。\n\nプラグイン種類: {option}")
+    ])
 
 if st.button("実行", type="primary", key="execute"):
     # ユーザーの選択内容をst.session_satte.messagesに追加
